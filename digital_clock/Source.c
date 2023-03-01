@@ -5,35 +5,37 @@
 int main() {
 
 	int h, m, s;
-	h = s = 0;
-	m = 58;
+	h = m = s = 0;
 
-	while (1) {
+	while (1)
+	{
+		
 
-		printf("%i : %i : %i \n", h, m, s);
+		Sleep(1000);         // "Sleeps" program for one second
+		s++;				// and increments second counter by 1.
 
-		while (1)
-		{
-			Sleep(1000); // "Sleeps" program for one second
-			s += 1;
-			if (s > 59) {
-				s = 0;
-				m += 1;
-			}
-			if (m > 59) {
-				s = 0;
-				m = 0;
-				h += 1;
-			}
-			if (h > 23)
-			{
-				s = 0;
-				m = 0;
-				h = 0;
-			}
-			printf("%02i : %02i : %02i \n", h, m, s);
+		// Checks how much time passed and updates time accurately.
+
+		if (s > 59) {
+			s = 0;
+			m++;
 		}
+		if (m > 59) {
+			s = 0;
+			m = 0;
+			h++;
+		}
+			if (h > 23)
+		{
+			s = 0;
+			m = 0;
+			h = 0;
+		}
+
+		printf("%02i : %02i : %02i \n", h, m, s);		
 	}
 
 	return 0;
 }
+
+	
